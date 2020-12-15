@@ -1,0 +1,87 @@
+{
+    "name": "austinheap/laravel-database-encryption",
+    "description": "A package for automatically encrypting and decrypting Eloquent attributes in Laravel 5.5+, based on configuration settings.",
+    "keywords": [
+        "laravel",
+        "encrypt",
+        "database",
+        "eloquent",
+        "model",
+        "attribute",
+        "decrypt",
+        "encryption",
+        "decryption",
+        "db",
+        "aes",
+        "laravel5",
+        "laravel55",
+        "laravel56",
+        "laravel57",
+        "laravel58",
+        "l5",
+        "laravel encryption",
+        "laravel5 encryption",
+        "laravel55 encryption",
+        "laravel56 encryption",
+        "laravel57 encryption",
+        "laravel58 encryption",
+        "eloquent encryption",
+        "model encryption",
+        "attribute encryption",
+        "database encryption",
+        "laravel5 aes",
+        "eloquent aes",
+        "elocrypt",
+        "elocryptfive"
+    ],
+    "homepage": "https://github.com/austinheap/laravel-database-encryption",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Austin Heap",
+            "email": "me@austinheap.com",
+            "homepage": "https://github.com/austinheap",
+            "role": "Developer"
+        }
+    ],
+    "replace": {
+        "delatbabel/elocryptfive": "*",
+        "dtisgodsson/elocrypt": "*"
+    },
+    "conflict": {
+        "delatbabel/elocryptfive": "*",
+        "dtisgodsson/elocrypt": "*"
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "laravel/framework": "5.5.*|5.6.*|5.7.*|5.8.*",
+        "paragonie/random_compat": "^2.0"
+    },
+    "require-dev": {
+        "codeclimate/php-test-reporter": "dev-master",
+        "phpunit/phpunit": "~6.0|~7.0",
+        "orchestra/testbench": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "AustinHeap\\Database\\Encryption\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AustinHeap\\Database\\Encryption\\EncryptionServiceProvider"
+            ],
+            "aliases": {
+                "DatabaseEncryption": "AustinHeap\\Database\\Encryption\\EncryptionFacade"
+            }
+        }
+    },
+    "config": {
+        "discard-changes": true
+    }
+}

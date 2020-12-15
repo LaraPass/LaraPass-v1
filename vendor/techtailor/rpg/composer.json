@@ -1,0 +1,29 @@
+{
+    "name": "techtailor/rpg",
+    "description": "Random Password Generator for Laravel 5",
+    "type": "laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Moinuddin S. Khaja",
+            "email": "hello@moinuddin.info"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TechTailor\\RPG\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TechTailor\\RPG\\RPGServiceProvider"
+            ],
+            "aliases": {
+                "RPG": "TechTailor\\RPG\\Facade"
+            }
+        }
+    }
+}
