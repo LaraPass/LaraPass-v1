@@ -23,6 +23,6 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.0.0-rc.27",
-        "quill": "^1.3.6"
+        "quill": "^1.3.7"
     }
 }
