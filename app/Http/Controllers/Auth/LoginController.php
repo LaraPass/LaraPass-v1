@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -55,14 +55,14 @@ class LoginController extends Controller
      *
      * Checking if the user is banned, if so logging out and redirecting to login page with error.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
+     * @param \Illuminate\Http\Request $request
+     * @param mixed                    $user
+     *
      * @return mixed
      */
     protected function authenticated(Request $request, $user)
     {
-        if( $user->status == 'Active')
-        {
+        if ($user->status == 'Active') {
 
             // $iplog = new IPLog();
             // $iplog->user_id = $user->id;
@@ -70,12 +70,9 @@ class LoginController extends Controller
             // $iplog->user_agent = $request->header('User-Agent');
             // $iplog->created_at = \Now();
             // $iplog->save();
-            
-            return redirect()->intended($this->redirectPath());
-        }
 
-        else 
-        {            
+            return redirect()->intended($this->redirectPath());
+        } else {
             $status = $user->status;
 
             $remark = $user->remark;
@@ -86,43 +83,42 @@ class LoginController extends Controller
 
             return redirect('/login')->with($status, $remark);
         }
-
     }
 
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
     {
-        if(Auth::user())
-        {
+        if (Auth::user()) {
             $this->guard()->logout();
 
             $request->session()->invalidate();
 
             return $this->loggedOut($request) ?: redirect('/');
-        }
-        else
+        } else {
             return redirect('/');
-        
+        }
     }
 
     /**
      * Validate the user login request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
+     * @param \Illuminate\Http\Request $request
      *
      * @throws \Illuminate\Validation\ValidationException
+     *
+     * @return void
      */
     protected function validateLogin(Request $request)
     {
         $request->validate([
             $this->username() => 'required|string',
-            'password' => 'required|string',
+            'password'        => 'required|string',
         ]);
     }
 }

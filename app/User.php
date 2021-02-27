@@ -2,12 +2,6 @@
 
 namespace App;
 
-use App\Account;
-use App\AccountNote;
-use App\Folder;
-use App\MarkForDeletionLog;
-use App\QuickNote;
-use App\SecurityQuestions;
 use AustinHeap\Database\Encryption\Traits\HasEncryptedAttributes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +10,9 @@ use Yadahan\AuthenticationLog\AuthenticationLogable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, AuthenticationLogable, HasEncryptedAttributes;
+    use Notifiable;
+    use AuthenticationLogable;
+    use HasEncryptedAttributes;
 
     const ADMIN_TYPE = 'admin';
     const DEFAULT_TYPE = 'default';
@@ -36,7 +32,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 'email', 'username', 
+        'password', 'remember_token', 'email', 'username',
     ];
 
     /**
@@ -54,73 +50,84 @@ class User extends Authenticatable implements MustVerifyEmail
     /*
      * Checking if the user is Admin
      */
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return $this->type === self::ADMIN_TYPE;
     }
 
     /**
-     * A user can have only one set of security questions
+     * A user can have only one set of security questions.
      */
-    public function questions() {
+    public function questions()
+    {
         return $this->hasOne(SecurityQuestions::class);
     }
 
     /*
      * A user can have many accounts
      */
-    public function accounts() {
+    public function accounts()
+    {
         return $this->hasMany(Account::class);
     }
 
     /*
      * A user can create and own many folders
      */
-    public function folders() {
+    public function folders()
+    {
         return $this->hasMany(Folder::class);
     }
 
     /*
      * A User can have many quick notes.
      */
-    public function quick_note() {
+    public function quick_note()
+    {
         return $this->hasMany(QuickNote::class);
     }
 
     /*
      * Returns total accounts owned by the user.
      */
-    public function totalAccounts() {
+    public function totalAccounts()
+    {
         return $this->accounts()->count();
     }
 
     /*
      * Returns total folders owned by the user.
      */
-    public function totalFolders() {
+    public function totalFolders()
+    {
         return $this->folders()->count();
     }
 
     /*
      * Returns total notes (quick + account) owned by the user.
      */
-    public function totalNotes() {
+    public function totalNotes()
+    {
         $qn = $this->quick_note()->count();
         $an = $this->account_note()->count();
         $tn = $qn + $an;
+
         return $tn;
     }
 
     /*
      * A User can have many account notes.
      */
-    public function account_note() {
+    public function account_note()
+    {
         return $this->hasMany(AccountNote::class);
     }
 
     /*
      * A user can have many mark deletion logs
      */
-    public function mark_for_deletion_logs() {
+    public function mark_for_deletion_logs()
+    {
         return $this->hasMany(MarkForDeletionLog::class);
     }
 }

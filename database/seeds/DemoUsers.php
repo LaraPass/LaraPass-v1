@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class DemoUsers extends Seeder
 {
     /**
-     * Local Testing Seeder. DO NOT USE IN PRODUCTION ENVIRONMENT
+     * Local Testing Seeder. DO NOT USE IN PRODUCTION ENVIRONMENT.
      */
     public function run()
     {

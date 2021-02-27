@@ -105,7 +105,6 @@ return [
         ],
     ],
 
-
     'pwned' => 'Your chosen password is insufficiently secure as it has been found at least :min times in known password breaches, please choose a new one.',
 
     /*

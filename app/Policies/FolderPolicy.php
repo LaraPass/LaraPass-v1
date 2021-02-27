@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Folder;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FolderPolicy
@@ -11,8 +11,7 @@ class FolderPolicy
     use HandlesAuthorization;
 
     /**
-     * Policy for athorizing Folder modifications
-     *
+     * Policy for athorizing Folder modifications.
      */
     public function update(User $user, Folder $folder)
     {

@@ -2,12 +2,8 @@
 
 namespace App;
 
-use App\User;
-use App\Folder;
-use App\Category;
-use App\AccountNote;
-use Illuminate\Database\Eloquent\Model;
 use AustinHeap\Database\Encryption\Traits\HasEncryptedAttributes;
+use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model
 {
@@ -19,7 +15,7 @@ class Account extends Model
      * @var array
      */
     protected $fillable = [
-    	'title', 'category_id', 'link', 'login_id', 'login_password', 'additional_info',
+        'title', 'category_id', 'link', 'login_id', 'login_password', 'additional_info',
     ];
 
     /**
@@ -27,12 +23,12 @@ class Account extends Model
      *
      * @var array
      */
-	protected $encrypted = [
-		'login_id', 'login_password','additional_info',
-	];
+    protected $encrypted = [
+        'login_id', 'login_password', 'additional_info',
+    ];
 
-	/**
-     * Lazy loading owner info along with accounts modal
+    /**
+     * Lazy loading owner info along with accounts modal.
      */
     protected $with = ['owner', 'folder'];
 
@@ -41,50 +37,55 @@ class Account extends Model
      *
      * @var array
      */
-	public function owner() {
-		return $this->belongsTo(User::class, 'user_id');
-	}
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
-	/**
+    /**
      * An account also belongs to a particular category.
      *
      * @var array
      */
-	public function category() {
-		return $this->belongsTo(Category::class, 'category_id');
-	}
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 
     /**
      * Partial Keyword Search Function on Title & Category.
      *
      * @var array
      */
-    public function scopeSearchByKeyword($query, $keyword) 
+    public function scopeSearchByKeyword($query, $keyword)
     {
-        if ($keyword!='') {
+        if ($keyword != '') {
             $query->where(function ($query) use ($keyword) {
-                $query->where("title", "LIKE","%$keyword%");
+                $query->where('title', 'LIKE', "%$keyword%");
             });
         }
+
         return $query;
     }
 
     /*
      * Account belongs to folder
      */
-    public function folder() {
+    public function folder()
+    {
         return $this->belongsToMany(Folder::class);
     }
 
     /*
      * An account has many notes
      */
-    public function account_notes() {
+    public function account_notes()
+    {
         return $this->hasMany(AccountNote::class);
     }
 
-    public function addNote($account_note) {
+    public function addNote($account_note)
+    {
         $this->account_notes()->create($account_note);
     }
-	
 }

@@ -2,10 +2,8 @@
 
 namespace App;
 
-use App\User;
-use App\Account;
-use Illuminate\Database\Eloquent\Model;
 use AustinHeap\Database\Encryption\Traits\HasEncryptedAttributes;
+use Illuminate\Database\Eloquent\Model;
 
 class AccountNote extends Model
 {
@@ -37,14 +35,16 @@ class AccountNote extends Model
     /*
      * An Account Note is owned by a user
      */
-    public function user() {
-    	return $this->belongsTo(User::class, 'user_id');
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     /*
      * An Account Note belongs to an Account
      */
-    public function accounts() {
-    	return $this->belongsTo(Account::class, 'account_id');
+    public function accounts()
+    {
+        return $this->belongsTo(Account::class, 'account_id');
     }
 }

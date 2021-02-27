@@ -3,11 +3,12 @@
  * src/config/database-encryption.php.
  *
  * @author      Austin Heap <me@austinheap.com>
+ *
  * @version     v0.2.0
  */
 
 return [
- 
+
     /*
      * Enable database encryption.
      *

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -14,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified', '2fa']);
+        $this->middleware(['auth', 'verified', '2fa']);
     }
 
     /**
@@ -30,9 +29,11 @@ class HomeController extends Controller
     /*
      * Logging current user out and flushing all sessions
      */
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
         session()->invalidate();
+
         return $this->loggedOut() ?: redirect('/');
     }
 }

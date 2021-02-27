@@ -6,11 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class DatabaseSettingsUpdateForm extends FormRequest
 {
-
     /*
     *Route to redirect user to on validation failure.
     */
-    protected $redirectAction = 'Admin\AdminController@settings' ;
+    protected $redirectAction = 'Admin\AdminController@settings';
 
     /**
      * Determine if the user is authorized to make this request.
@@ -30,8 +29,8 @@ class DatabaseSettingsUpdateForm extends FormRequest
     public function rules()
     {
         return [
-            'db_mysql_host' => 'required',
-            'db_mysql_port' => 'required',
+            'db_mysql_host'     => 'required',
+            'db_mysql_port'     => 'required',
             'db_mysql_database' => 'required',
             'db_mysql_username' => 'required',
         ];
@@ -45,8 +44,8 @@ class DatabaseSettingsUpdateForm extends FormRequest
     public function messages()
     {
         return [
-            'db_mysql_host.required' => 'Database Hostname is required',
-            'db_mysql_port.required' => 'Database Port No. is required',
+            'db_mysql_host.required'     => 'Database Hostname is required',
+            'db_mysql_port.required'     => 'Database Port No. is required',
             'db_mysql_database.required' => 'Database Name is required',
             'db_mysql_username.required' => 'Database Username is required',
         ];

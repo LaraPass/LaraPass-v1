@@ -6,11 +6,11 @@ use Auth;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PromotedToAdminStatus extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -30,8 +30,8 @@ class PromotedToAdminStatus extends Mailable
     public function build()
     {
         return $this->markdown('ui.mails.promoted-to-admin')->with([
-            'name' => $this->request->name,
-            'admin' => Auth::user()->name
+            'name'  => $this->request->name,
+            'admin' => Auth::user()->name,
         ]);
     }
 }

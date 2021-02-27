@@ -3,21 +3,21 @@
 return [
 
     /**
-     * The view to show to users when maintenance mode is currently enabled
+     * The view to show to users when maintenance mode is currently enabled.
      *
      * @var string
      */
     'view' => 'maintenancemode::app-down',
 
     /**
-     * Include CSS styles with the optional notification view
+     * Include CSS styles with the optional notification view.
      *
-     * @var boolean
+     * @var bool
      */
     'notification-styles' => true,
 
     /**
-     * Configuration values for injecting variables into the views
+     * Configuration values for injecting variables into the views.
      *
      * Variables available:
      * [prefix]Enabled - If maintenance mode is currently enabled
@@ -29,16 +29,16 @@ return [
     'inject' => [
 
         /**
-         * Make variables accessible in all views
+         * Make variables accessible in all views.
          *
          * If set to false, only the maintenance page will have access to these variables
          *
-         * @var boolean
+         * @var bool
          */
         'global' => true,
 
         /**
-         * Prefix the variables to prevent name collisions
+         * Prefix the variables to prevent name collisions.
          *
          * @var string
          */
@@ -46,14 +46,14 @@ return [
     ],
 
     /**
-     * The path to the language file to use
+     * The path to the language file to use.
      *
      * @var string
      */
     'language-path' => 'maintenancemode::defaults',
 
     /**
-     * An array of IP address that will never see the maintenance page
+     * An array of IP address that will never see the maintenance page.
      *
      * To be used in conjunction with the IPWhitelist exemption class
      *
@@ -62,16 +62,16 @@ return [
     'exempt-ips' => [],
 
     /**
-     * Use proxies to get the user's IP address
+     * Use proxies to get the user's IP address.
      *
      * See: http://symfony.com/doc/current/components/http_foundation/trusting_proxies.html
      *
-     * @var boolean
+     * @var bool
      */
     'exempt-ips-proxy' => false,
 
     /**
-     * An array of environments that will never show the maintenance page
+     * An array of environments that will never show the maintenance page.
      *
      * To be used in conjunction with the EnvironmentWhitelist exemption class
      *
@@ -80,7 +80,7 @@ return [
     'exempt-environments' => ['local'],
 
     /**
-     * A list of exemption classes to execute
+     * A list of exemption classes to execute.
      *
      * Each of these classes should extend
      * \MisterPhilip\MaintenanceMode\Exemptions\MaintenanceModeExemption

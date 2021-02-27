@@ -9,7 +9,7 @@ class AccountUpdateForm extends FormRequest
     /*
     *Route to redirect user to on validation failure.
     */
-    protected $redirectAction = 'AccountsController@index' ;
+    protected $redirectAction = 'AccountsController@index';
 
     /**
      * Determine if the user is authorized to make this request.
@@ -29,10 +29,10 @@ class AccountUpdateForm extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3|max:35',
-            'link' => 'max:155',
-            'login_id' => 'required|min:3|max:155',
-            'login_password' => 'required|min:3|max:155',
+            'title'           => 'required|min:3|max:35',
+            'link'            => 'max:155',
+            'login_id'        => 'required|min:3|max:155',
+            'login_password'  => 'required|min:3|max:155',
             'additional_info' => 'max:255',
         ];
     }
@@ -45,17 +45,17 @@ class AccountUpdateForm extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Title is required',
-            'title.min' => 'Title should have minimum 3 characters',
-            'title.max' => 'Title can have maximum 35 characters',
-            'link.max' => 'Website Link can have maximum 155 characters',
-            'login_id.required' => 'Login ID is required to add an account to the vault',
-            'login_id.min' => 'Login ID should contain minimum 3 characters',
-            'login_id.max' => 'Login ID can have maximum 155 characters',
+            'title.required'          => 'Title is required',
+            'title.min'               => 'Title should have minimum 3 characters',
+            'title.max'               => 'Title can have maximum 35 characters',
+            'link.max'                => 'Website Link can have maximum 155 characters',
+            'login_id.required'       => 'Login ID is required to add an account to the vault',
+            'login_id.min'            => 'Login ID should contain minimum 3 characters',
+            'login_id.max'            => 'Login ID can have maximum 155 characters',
             'login_password.required' => 'Password for the Account is required',
-            'login_password.min' => 'Login Password needs to be of minimum 3 characters',
-            'login_password.max' => 'Login Password cannot exceed 155 character limit',
-            'additional_info.max' => 'Additional Info cannot exceed 255 character limit',
+            'login_password.min'      => 'Login Password needs to be of minimum 3 characters',
+            'login_password.max'      => 'Login Password cannot exceed 155 character limit',
+            'additional_info.max'     => 'Additional Info cannot exceed 255 character limit',
         ];
     }
 }

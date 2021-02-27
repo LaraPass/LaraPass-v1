@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\QuickNote;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class QuickNotePolicy
@@ -11,8 +11,7 @@ class QuickNotePolicy
     use HandlesAuthorization;
 
     /**
-     * Policy for athorizing Quick Note modifications
-     *
+     * Policy for athorizing Quick Note modifications.
      */
     public function update(User $user, QuickNote $quick_note)
     {

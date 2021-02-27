@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Account;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AccountPolicy
@@ -11,8 +11,7 @@ class AccountPolicy
     use HandlesAuthorization;
 
     /**
-     * Policy for athorizing Account modifications
-     *
+     * Policy for athorizing Account modifications.
      */
     public function update(User $user, Account $account)
     {
