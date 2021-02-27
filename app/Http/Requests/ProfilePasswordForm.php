@@ -30,7 +30,7 @@ class ProfilePasswordForm extends FormRequest
     {
         return [
             'current_password' => 'required',
-            'password' => 'required|confirmed|min:6',      
+            'password'         => 'required|confirmed|min:6',
         ];
     }
 
@@ -43,9 +43,9 @@ class ProfilePasswordForm extends FormRequest
     {
         return [
             'current_password.required' => 'Current Password is required',
-            'passsword.required' => 'New Password is required',
-            'password.confirmed' => 'Password & Confirm Password do not match',
-            'password.min'  => 'New Password should be of minimum 6 characters',
+            'passsword.required'        => 'New Password is required',
+            'password.confirmed'        => 'Password & Confirm Password do not match',
+            'password.min'              => 'New Password should be of minimum 6 characters',
         ];
     }
 }

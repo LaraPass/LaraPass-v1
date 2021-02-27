@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateFoldersTable extends Migration
 {
@@ -23,11 +23,11 @@ class CreateFoldersTable extends Migration
                   ->on('users')
                   ->onDelete('cascade');
         });
-        
+
         Schema::create('account_folder', function (Blueprint $table) {
             $table->integer('folder_id');
             $table->integer('account_id');
-            $table->primary(['account_id','folder_id']);
+            $table->primary(['account_id', 'folder_id']);
         });
     }
 

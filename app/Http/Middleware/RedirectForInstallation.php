@@ -10,19 +10,18 @@ class RedirectForInstallation
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
 
-        if(setting()->get('app_installed') == 0)
-        {
+        if (setting()->get('app_installed') == 0) {
             return redirect('/admin/install');
-        }
-        else {
+        } else {
             return $response;
         }
     }

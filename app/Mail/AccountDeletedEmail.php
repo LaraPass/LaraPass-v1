@@ -5,11 +5,11 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class AccountDeletedEmail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -29,8 +29,8 @@ class AccountDeletedEmail extends Mailable
     public function build()
     {
         return $this->markdown('ui.mails.account-deleted')->with([
-            'name' => $this->request->name,
-            'email' => $this->request->email
+            'name'  => $this->request->name,
+            'email' => $this->request->email,
         ]);
     }
 }

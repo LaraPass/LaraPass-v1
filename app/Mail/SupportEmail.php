@@ -5,14 +5,14 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class SupportEmail extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     protected $support;
-    
+
     /**
      * Create a new message instance.
      *
@@ -31,7 +31,7 @@ class SupportEmail extends Mailable
     public function build()
     {
         return $this->markdown('ui.mails.support-email')->with([
-            'type' => $this->request->support_type,
+            'type'    => $this->request->support_type,
             'subject' => $this->request->support_subject,
             'message' => $this->request->support_message,
         ]);

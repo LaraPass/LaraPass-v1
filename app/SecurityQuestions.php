@@ -2,10 +2,8 @@
 
 namespace App;
 
-use App\User;
-use Delatbabel\Elocrypt\Elocrypt;
-use Illuminate\Database\Eloquent\Model;
 use AustinHeap\Database\Encryption\Traits\HasEncryptedAttributes;
+use Illuminate\Database\Eloquent\Model;
 
 class SecurityQuestions extends Model
 {
@@ -17,7 +15,7 @@ class SecurityQuestions extends Model
      * @var array
      */
     protected $fillable = [
-    	'question1', 'answer1', 'question2', 'answer2',
+        'question1', 'answer1', 'question2', 'answer2',
     ];
 
     /**
@@ -25,15 +23,16 @@ class SecurityQuestions extends Model
      *
      * @var array
      */
-	protected $encrypted = [
-		'answer1',
-		'answer2',
-	];
+    protected $encrypted = [
+        'answer1',
+        'answer2',
+    ];
 
-	/**
-	 * A Security Question set belongs to a particular user.
-	 */
-	public function user() {
-		return $this->belongsTo(User::class, 'user_id');
-	}
+    /**
+     * A Security Question set belongs to a particular user.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

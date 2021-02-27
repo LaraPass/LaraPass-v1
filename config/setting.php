@@ -10,7 +10,7 @@ return [
     | Auto-save every time the application shuts down
     |
     */
-	'auto_save'			=> true,
+    'auto_save'			=> true,
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | Supported: "database", "json"
     |
     */
-	'driver'			=> 'json',
+    'driver'			=> 'json',
 
     /*
     |--------------------------------------------------------------------------
@@ -33,7 +33,7 @@ return [
     | the default connection. Set the table and column names.
     |
     */
-	'database' => [
+    'database' => [
         'connection'    => null,
         'table'         => 'settings',
         'key'           => 'key',
@@ -48,7 +48,7 @@ return [
     | Options for json driver. Enter the full path to the .json file.
     |
     */
-	'json' => [
+    'json' => [
         'path'          => storage_path().'/settings.json',
     ],
 
@@ -65,28 +65,28 @@ return [
     |
     */
     'override' => [
-        "app.name" => "app_name",
-        "app.env" => "app_env",
-        "app.debug" => "app_debug",
-        "app.url" => "app_url",
-        "mail.driver" => "app_mail_driver",
-        "mail.host" => "app_mail_host",
-        "mail.port" => "app_mail_port",
-        "mail.from.address" => "app_mail_sender",
-        "mail.from.name" => "app_mail_sender_name",
-        "mail.encryption" => "app_mail_encryption",
-        "mail.username" => "app_mail_username",
-        "mail.password" => "app_mail_password",
-        "mail.mailgun.domain" => "mailgun_domain",
-        "mail.mailgun.secret" => "mailgun_secret",
-        "database.default" => "db_default_type",
-        "database.mysql.host" => "db_mysql_host",
-        "database.mysql.port" => "db_mysql_port",
-        "database.mysql.database" => "db_mysql_database",
-        "database.mysql.username" => "db_mysql_username",
-        "database.mysql.password" => "db_mysql_password",
-        "database.connections.mysql.dump.dump_binary_path" => "app_mysql_dump_path",
-        "captcha.secretKey" => "recaptcha_secret_key",
-        "captcha.siteKey" => "recaptcha_site_key",
+        'app.name'                                         => 'app_name',
+        'app.env'                                          => 'app_env',
+        'app.debug'                                        => 'app_debug',
+        'app.url'                                          => 'app_url',
+        'mail.driver'                                      => 'app_mail_driver',
+        'mail.host'                                        => 'app_mail_host',
+        'mail.port'                                        => 'app_mail_port',
+        'mail.from.address'                                => 'app_mail_sender',
+        'mail.from.name'                                   => 'app_mail_sender_name',
+        'mail.encryption'                                  => 'app_mail_encryption',
+        'mail.username'                                    => 'app_mail_username',
+        'mail.password'                                    => 'app_mail_password',
+        'mail.mailgun.domain'                              => 'mailgun_domain',
+        'mail.mailgun.secret'                              => 'mailgun_secret',
+        'database.default'                                 => 'db_default_type',
+        'database.mysql.host'                              => 'db_mysql_host',
+        'database.mysql.port'                              => 'db_mysql_port',
+        'database.mysql.database'                          => 'db_mysql_database',
+        'database.mysql.username'                          => 'db_mysql_username',
+        'database.mysql.password'                          => 'db_mysql_password',
+        'database.connections.mysql.dump.dump_binary_path' => 'app_mysql_dump_path',
+        'captcha.secretKey'                                => 'recaptcha_secret_key',
+        'captcha.siteKey'                                  => 'recaptcha_site_key',
     ],
 ];

@@ -42,16 +42,13 @@ class DeleteMarkedProfiles extends Command
     public function handle()
     {
         $users = User::all();
-        foreach($users as $user)
-        {
-            if(! $user->delete_on == null)
-            {
-                if(Carbon::now() > $user->delete_on )
-                {
+        foreach ($users as $user) {
+            if (!$user->delete_on == null) {
+                if (Carbon::now() > $user->delete_on) {
                     Mail::to($user->email)->send(new AccountDeletedEmail($user));
                     $user->delete();
                 }
-            }            
+            }
         }
 
         $this->info('Checked and deleted any pending profiles marked for deletion');

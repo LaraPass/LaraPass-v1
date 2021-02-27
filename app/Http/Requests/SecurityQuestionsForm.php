@@ -30,9 +30,9 @@ class SecurityQuestionsForm extends FormRequest
     {
         return [
             'question1' => 'required',
-            'answer1' => 'required',
+            'answer1'   => 'required',
             'question2' => 'required',
-            'answer2' => 'required',
+            'answer2'   => 'required',
         ];
     }
 
@@ -45,9 +45,9 @@ class SecurityQuestionsForm extends FormRequest
     {
         return [
             'question1.required' => 'Question # 1 is required',
-            'answer1.required' => 'Answer # 1 is required',
+            'answer1.required'   => 'Answer # 1 is required',
             'question2.required' => 'Question # 2 is required',
-            'answer2.required' => 'Answer # 2 is required',
+            'answer2.required'   => 'Answer # 2 is required',
         ];
     }
 }

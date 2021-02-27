@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class MarkForDeletionLog extends Model
@@ -13,7 +12,7 @@ class MarkForDeletionLog extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'username', 'action', 'ip_address', 'user_agent'
+        'user_id', 'username', 'action', 'ip_address', 'user_agent',
     ];
 
     protected $table = 'mark_for_deletion_logs';
@@ -21,7 +20,8 @@ class MarkForDeletionLog extends Model
     /*
      * A mark for deletion log belongs to a user
      */
-    public function user() {
-    	return $this->belongsTo(User::class)->orderBy('created_at','DESC');
+    public function user()
+    {
+        return $this->belongsTo(User::class)->orderBy('created_at', 'DESC');
     }
 }

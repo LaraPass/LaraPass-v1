@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\AccountNote;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AccountNotePolicy
@@ -11,8 +11,7 @@ class AccountNotePolicy
     use HandlesAuthorization;
 
     /**
-     * Policy for athorizing Account Note modifications
-     *
+     * Policy for athorizing Account Note modifications.
      */
     public function update(User $user, AccountNote $account_note)
     {

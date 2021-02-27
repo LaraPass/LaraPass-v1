@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAccountsTable extends Migration
 {
@@ -19,8 +19,8 @@ class CreateAccountsTable extends Migration
             $table->string('title');
             $table->integer('category_id')->unsigned();
             $table->string('link');
-            $table->text('login_id',255);
-            $table->text('login_password',255);
+            $table->text('login_id', 255);
+            $table->text('login_password', 255);
             $table->text('additional_info')->nullable();
             $table->timestamps();
             $table->foreign('user_id')

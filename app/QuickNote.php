@@ -2,10 +2,8 @@
 
 namespace App;
 
-use Auth;
-use App\User;
-use Illuminate\Database\Eloquent\Model;
 use AustinHeap\Database\Encryption\Traits\HasEncryptedAttributes;
+use Illuminate\Database\Eloquent\Model;
 
 class QuickNote extends Model
 {
@@ -17,7 +15,7 @@ class QuickNote extends Model
      * @var array
      */
     protected $fillable = [
-    	'user_id','content',  
+        'user_id', 'content',
     ];
 
     /**
@@ -32,7 +30,8 @@ class QuickNote extends Model
     /*
      * A Quick Note is owned by a user
      */
-    public function user() {
-    	return $this->belongsTo(User::class);
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

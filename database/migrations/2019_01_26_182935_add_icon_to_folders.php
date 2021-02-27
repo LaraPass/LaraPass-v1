@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class AddIconToFolders extends Migration
 {
@@ -13,7 +12,7 @@ class AddIconToFolders extends Migration
      */
     public function up()
     {
-        Schema::table('folders', function($table) {
+        Schema::table('folders', function ($table) {
             $table->string('icon')->nullable();
         });
     }
@@ -25,7 +24,7 @@ class AddIconToFolders extends Migration
      */
     public function down()
     {
-        Schema::table('folders', function($table) {
+        Schema::table('folders', function ($table) {
             $table->dropColumn('icon');
         });
     }

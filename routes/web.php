@@ -24,7 +24,7 @@ Route::post('/profile/password', 'UserProfileController@updatePassword')->name('
 Route::get('/profile/logs', 'UserProfileController@ipLogs')->name('ipLogs');
 Route::post('/profile/avatar', 'UserProfileController@updateAvatar')->name('updateAvatar');
 
-// All Routes for Security Settings 
+// All Routes for Security Settings
 Route::get('/security', 'SecurityController@index')->name('security');
 Route::post('/security/questions', 'SecurityController@questions')->name('securityQuestions');
 Route::post('/security/2fa/activate', 'SecurityController@activate2FA')->name('activate2FA');
@@ -33,7 +33,7 @@ Route::get('/security/2fa/disable', 'SecurityController@disable2FAView')->name('
 Route::post('/security/2fa/disable', 'SecurityController@disable2FA')->name('disable2FA');
 Route::post('/authenticate', 'SecurityController@authenticate')->name('authenticate');
 
-// All Routes for Accounts 
+// All Routes for Accounts
 Route::get('/accounts', 'AccountsController@index')->name('accounts');
 Route::post('/accounts', 'AccountsController@store')->name('storeAccount');
 Route::post('/accounts/view', 'AccountsController@view')->name('viewAccount');
