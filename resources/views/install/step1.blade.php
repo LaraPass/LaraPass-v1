@@ -8,13 +8,8 @@ Setup Environment
 <div class="tabs is-fullwidth">
   <ul>
     <li>
-      <a>
+      <a href="{{ url('/admin/install') }}">
         <span><i class="fa fa-check-circle"></i><b> Requirements</b></span>
-      </a>
-    </li>
-    <li>
-      <a>
-        <span><i class="fa fa-check-circle"></i><b> License</b></span>
       </a>
     </li>
     <li class="is-active">

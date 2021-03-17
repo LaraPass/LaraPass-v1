@@ -37,7 +37,7 @@ if (version_compare(PHP_VERSION, '5.3', '>='))
   </div>
   <div class="content has-text-centered">
     <p>
-      2018-20 &copy; <a href="https://larapass.net" target="_blank">LaraPass</a> - All rights reserved | Check out LaraPass <a href="https://docs.larapass.net" target="_blank"> Documentation </a> for any guidance.
+      2018-21 &copy; <a href="https://larapass.net" target="_blank">LaraPass</a> - All rights reserved | Check out LaraPass v1 <a href="https://github.com/LaraPass/LaraPass-v1-Docs" target="_blank"> Documentation </a> for any guidance.
     </p>
     <br>
   </div>

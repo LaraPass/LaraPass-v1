@@ -39,7 +39,7 @@
   </li>
   <li class="nav-item">
     <a class="nav-link @yield('nav_settings')" href="{{ route('adminSettings') }}">
-      <i class="fa fa-gear text-pink"></i> Settings
+      <i class="fa fa-cog text-pink"></i> Settings
     </a>
   </li>
   <li class="nav-item">
