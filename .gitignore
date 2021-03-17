@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 .phpunit.result.cache
 /.lic
+/storage/settings.json

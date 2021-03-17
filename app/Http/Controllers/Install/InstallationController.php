@@ -29,6 +29,9 @@ class InstallationController extends Controller
     {
         $key = 'base64:'.base64_encode(Encrypter::generateKey(config('cipher')));
 
+        // Create a fresh settings.json file
+        copy(base_path().'/storage/example.settings.json', base_path().'/storage/settings.json');
+
         return view('install.step1')->with(compact('key'));
     }
 

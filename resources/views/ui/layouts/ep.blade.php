@@ -88,7 +88,7 @@
       <div class="row align-items-center justify-content-xl-between">
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
-           2018-20 &copy;<a href="{{ url('/') }}" class="font-weight-bold ml-1" target="_blank">{{ Setting::get('app_name') }} </a><small>v{{ Setting::get('app_version') }}</small>
+           2018-21 &copy;<a href="{{ url('/') }}" class="font-weight-bold ml-1" target="_blank">{{ Setting::get('app_name') }} </a><small>v{{ Setting::get('app_version') }}</small>
           </div>
         </div>
         <div class="col-xl-6">

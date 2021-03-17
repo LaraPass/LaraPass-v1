@@ -14,7 +14,7 @@ Setup Database
     </li>
     <li>
       <a>
-        <span><i class="fa fa-check-circle"></i> License</span>
+        <span><i class="fa fa-check-circle"></i> Environment</span>
       </a>
     </li>
     <li>
@@ -24,7 +24,7 @@ Setup Database
     </li>
     <li class="is-active">
       <a>
-        <span><i  class="fa fa-check-circle"></i><b>Finish</b></span>
+        <span><i  class="fa fa-check-circle"></i><b> Finish</b></span>
       </a>
     </li>
   </ul>

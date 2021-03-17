@@ -13,10 +13,6 @@ Setup Database
       </a>
     </li>
     <li>
-      <a>
-        <span><i class="fa fa-check-circle"></i><b> License</b></span>
-      </a>
-    </li>
     <li>
       <a>
           <span><i class="fa fa-check-circle"></i><b> Environment</b></span>
@@ -24,12 +20,12 @@ Setup Database
     </li>
     <li class="is-active">
       <a>
-        <span><b>Database</b></span>
+        <span><b> Database</b></span>
       </a>
     </li>
     <li>
       <a>
-        <span>Finish</span>
+        <span> Finish</span>
       </a>
     </li>
   </ul>

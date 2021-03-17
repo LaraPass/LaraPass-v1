@@ -14,11 +14,6 @@ Checking Requirements
       	</li>
       	<li>
         	<a>
-          		<span>License</span>
-        	</a>
-      	</li>
-      	<li>
-        	<a>
           		<span>Environment</span>
         	</a>
       	</li>
@@ -71,10 +66,7 @@ Checking Requirements
 	@if($errors)
 		<a href="#" class="button is-link" disabled>Next</a>
 	@else
-		<form method="GET" action="{{ url('/admin/install/step1') }}">
-			@csrf
-			<button type="submit" class="button is-link">Next</button>
-		</form>
+		<a href="{{ url('/admin/install/step1') }}" class="button is-link">Next</a>
 	@endif
 </div>
 @endsection
