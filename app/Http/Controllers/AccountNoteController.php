@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Account;
 use App\AccountNote;
-use Illuminate\Http\Request;
 
 class AccountNoteController extends Controller
 {

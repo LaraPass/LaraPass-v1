@@ -44,7 +44,7 @@ class Database extends Driver
      *
      * @var string
      */
-    protected $encryptedKeys;
+    protected $encrypted_keys;
 
     /**
      * Any query constraints that should be applied.
@@ -64,13 +64,13 @@ class Database extends Driver
      * @param \Illuminate\Database\Connection $connection
      * @param string $table
      */
-    public function __construct(Connection $connection, $table = null, $key = null, $value = null, $encryptedKeys = [])
+    public function __construct(Connection $connection, $table = null, $key = null, $value = null, $encrypted_keys = [])
     {
         $this->connection = $connection;
         $this->table = $table ?: 'settings';
         $this->key = $key ?: 'key';
         $this->value = $value ?: 'value';
-        $this->encryptedKeys = $encryptedKeys ?: [];
+        $this->encrypted_keys = $encrypted_keys ?: [];
     }
 
     /**
@@ -166,16 +166,35 @@ class Database extends Driver
      */
     protected function write(array $data)
     {
-        $keys = $this->newQuery()->pluck($this->key);
+        // Get current data
+        $db_data = $this->newQuery()->get([$this->key, $this->value])->toArray();
 
         $insert_data = LaravelArr::dot($data);
         $update_data = [];
         $delete_keys = [];
 
-        foreach ($keys as $key) {
+        foreach ($db_data as $db_row) {
+            $key = $db_row->{$this->key};
+            $value = $db_row->{$this->value};
+
+            $is_in_insert = $is_different_in_db = $is_same_as_fallback = false;
+
             if (isset($insert_data[$key])) {
-                $update_data[$key] = $insert_data[$key];
+                $is_in_insert = true;
+                $is_different_in_db = (string) $insert_data[$key] != (string) $value;
+                $is_same_as_fallback = $this->isEqualToFallback($key, $insert_data[$key]);
+            }
+
+            if ($is_in_insert) {
+                if ($is_same_as_fallback) {
+                    // Delete if new data is same as fallback
+                    $delete_keys[] = $key;
+                } elseif ($is_different_in_db) {
+                    // Update if new data is different from db
+                    $update_data[$key] = $insert_data[$key];
+                }
             } else {
+                // Delete if current db not available in new data
                 $delete_keys[] = $key;
             }
 
@@ -219,6 +238,11 @@ class Database extends Driver
             foreach ($data as $key => $value) {
                 $value = $this->prepareValue($key, $value);
 
+                // Don't insert if same as fallback
+                if ($this->isEqualToFallback($key, $value)) {
+                    continue;
+                }
+
                 $db_data[] = array_merge(
                     $this->getExtraColumns(),
                     [$this->key => $key, $this->value => $value]
@@ -227,6 +251,11 @@ class Database extends Driver
         } else {
             foreach ($data as $key => $value) {
                 $value = $this->prepareValue($key, $value);
+
+                // Don't insert if same as fallback
+                if ($this->isEqualToFallback($key, $value)) {
+                    continue;
+                }
 
                 $db_data[] = [$this->key => $key, $this->value => $value];
             }
@@ -247,9 +276,8 @@ class Database extends Driver
      */
     protected function prepareValue(string $key, $value)
     {
-
         // Check if key should be encrypted
-        if (in_array($key, $this->encryptedKeys)) {
+        if (in_array($key, $this->encrypted_keys)) {
             // Cast to string to avoid error when a user passes a boolean value
             return Crypt::encryptString((string) $value);
         }
@@ -268,9 +296,8 @@ class Database extends Driver
      */
     protected function unpackValue(string $key, $value)
     {
-
         // Check if key should be encrypted
-        if (in_array($key, $this->encryptedKeys)) {
+        if (in_array($key, $this->encrypted_keys)) {
             // Cast to string to avoid error when a user passes a boolean value
             return Crypt::decryptString((string) $value);
         }
